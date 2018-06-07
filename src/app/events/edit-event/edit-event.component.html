@@ -1,0 +1,78 @@
+<div class="row title">
+  <span>{{title}}</span>
+</div>
+<div class="row">
+  <div class="col-xs-12 pull-right" *ngIf="!isInEdit">
+    <button class="btn btn-info" (click)="isInEdit = !isInEdit">
+        <i class="fa fa-pencil">&nbsp;</i>Edit</button>
+    <button class="btn btn-danger" (click)="redirectToList()">
+        <i class="fa fa-times">&nbsp;</i>Close</button>
+  </div>
+  <div class="col-xs-12 pull-right" *ngIf="isInEdit">
+    <button class="btn btn-success" (click)="save()">
+        <i class="fa fa-save">&nbsp;</i>Save</button>
+    <button class="btn btn-danger" (click)="cancel()">
+        <i class="fa fa-times">&nbsp;</i>Cancel</button>
+  </div>
+</div>
+<div class="row" *ngIf="event">
+  <ng-container>
+    <div class="col-xs-12">
+      <div class="col-sm-6">
+        <label>Id</label>
+        <span>{{event.id}}</span>
+      </div>
+      <div class="col-sm-6">
+
+        <div class="col-xs-12">
+          <label>When Created</label>
+          <span>{{event.whenCreated | date : 'medium'}}</span>
+        </div>
+        <div class="col-xs-12">
+          <label>When Last Updated</label>
+          <span>{{event.whenLastUpdated | date : 'medium'}}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!isInEdit; else editView">
+    <div class="col-xs-12">
+      <label>Title</label>
+      <span>{{event.title}}</span>
+    </div>
+    <div class="col-xs-12">
+      <label>Description</label>
+      <span>{{event.description}}</span>
+    </div>
+
+    <div class="col-xs-12">
+      <label>Duration</label>
+      <span>{{event.duration | timeconverter}} </span>
+    </div>
+    <div class="col-xs-12">
+      <label>Event Date And Time</label>
+      <span>{{event.startDateAndTime | date : 'medium'}}</span>
+    </div>
+
+  </ng-container>
+  <ng-container *ngIf="isInEdit" #editView>
+    <form [formGroup]="eventForm">
+      <div class="col-xs-12">
+        <label>Title</label>
+        <input class="form-control" type="text" formControlName="title" />
+      </div>
+      <div class="col-xs-12">
+        <label>Description</label>
+        <textarea class="form-control" cols="10" resizable="false" type="text" formControlName="description"></textarea>
+      </div>
+      <div class="col-xs-12">
+        <label>Event Date And Time</label>
+        <input class="form-control" type="datetime-local" formControlName="startDateAndTime" />
+      </div>
+      <div class="col-xs-12">
+        <label>Duration(min)</label>
+        <input class="form-control" type="text" formControlName="duration" />
+      </div>
+    </form>
+  </ng-container>
+</div>

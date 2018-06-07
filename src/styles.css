@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+.title{
+    font-size: 18px;
+    color:#fff;
+    padding: 12px 5px;
+    background: rgb(13, 99, 179);
+    text-align: center
+}
+textarea{
+    resize: none;
+    height: 120px !important;
+}
