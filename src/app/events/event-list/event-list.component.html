@@ -1,36 +1,41 @@
+<app-loading [loading]="loading" [type]="'circle'"></app-loading>
 <div class="row title">
-  <span>{{title}}</span>
+    <span>{{title}}</span>
 </div>
 <div class="row">
-  <div class="col-xs-12 ">
-    <button class="btn btn-success pull-right" (click)="redirectTo('add-event')">
+    <div class="col-xs-12 ">
+        <button class="btn btn-success pull-right" (click)="redirectTo('add-event')">
       <i class="fa fa-calendar">&nbsp;</i>Create New</button>
-  </div>
-  <div class="col-xs-12">
-    <table class="table table-striped table-responsive">
-      <thead>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Event Date And Time</th>
-        <th>Duration</th>
-        <th></th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let event of events">
-          <td>{{event.id}}</td>
-          <td>{{event.title}}</td>
-          <td>{{event.startDateAndTime | date : 'medium'}}</td>
-          <td>{{event.duration | timeconverter}}</td>
-          <td>
-            <a class="btn btn-info" 
-               (click)="redirectTo('edit-event/'+event.id)"><i class="fa fa-eye"></i>
+    </div>
+    <div class="col-xs-12">
+        <table class="table table-striped table-responsive">
+            <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Event Date And Time</th>
+                <th>Duration</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let event of events">
+                    <td>{{event.id}}</td>
+                    <td>{{event.title}}</td>
+                    <td>{{event.startDateAndTime | date : 'medium'}}</td>
+                    <td>{{event.duration | timeconverter}}</td>
+                    <td>
+                        <a class="btn btn-info" (click)="redirectTo('edit-event/'+event.id)"><i class="fa fa-eye"></i>
             </a>
-            <a class="btn btn-danger" 
-            (click)="deleteEvent(event.id)"><i class="fa fa-trash"></i>
+                        <a class="btn btn-danger" (click)="showModal(event)"><i class="fa fa-trash"></i>
          </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+                    </td>
+                </tr>
+                <tr *ngIf="events.length === 0" class="empty-row">
+                    <td colspan="5">No Events found.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<app-delete-event [show]="modalState" [event]="selectedEvent">
+
+</app-delete-event>

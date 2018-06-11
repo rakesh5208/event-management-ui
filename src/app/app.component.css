@@ -1,0 +1,17 @@
+.contact-details>span {
+    display: block;
+}
+
+.footer {
+    background: #79018d;
+    text-align: center;
+    color: white;
+    padding: 15px 12px;
+    position: absolute;
+    margin-top: 40px;
+}
+
+.container {
+    max-width: 1000px;
+}
+

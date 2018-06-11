@@ -11,6 +11,7 @@ import {
 } from './services';
 import { TimeConverterPipe } from './shared/time-converter.pipe';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -19,13 +20,15 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
     EventsModule,
+
     AppRoutingModule
   ],
-  providers: [AppLookService, DateUtil],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

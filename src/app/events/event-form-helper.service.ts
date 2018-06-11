@@ -2,9 +2,10 @@ import { DateUtil } from './../services/date-util-service';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Event } from '../model';
-
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 @Injectable()
 export class EventFormHelperService {
+    public deleteModalState = new BehaviorSubject<any>({ open: false, reload: false });
     constructor(private fb: FormBuilder,
         private dateUtil: DateUtil) { }
 
@@ -39,7 +40,7 @@ export class EventFormHelperService {
             id: null,
             title: '',
             description: '',
-            startDateAndTime: 0,
+            startDateAndTime: Date.now(),
             duration: 0,
             whenCreated: 0,
             whenLastUpdated: 0

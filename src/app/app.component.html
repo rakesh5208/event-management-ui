@@ -1,5 +1,18 @@
-<div class="container">
-    <router-outlet></router-outlet>
+<div>
+    <app-nav [navItems]="navItems"></app-nav>
+    <app-page-body>
+        <app-notification></app-notification>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </app-page-body>
+    <app-footer>
+        <div>
+            <span>This application has copyright &copy; to Mr. Rakesh</span>
+        </div>
+        <div class="contact-details">
+            <span>Name: Rakesh Kumar Jha</span>
+            <span>Email: rakesh5208@gmail.com</span>
+        </div>
+    </app-footer>
 </div>
-
-

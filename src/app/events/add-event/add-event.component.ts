@@ -1,9 +1,13 @@
+import { NotificationType } from 'angular2component';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EventDaoService } from '../event-dao.service';
 import { Event } from '../../model';
 import { EventFormHelperService } from '../event-form-helper.service';
-import { DateUtil } from '../../services/date-util-service';
+import {
+  DateUtil,
+  NotificationHelperService
+} from '../../services';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-event',
@@ -17,7 +21,8 @@ export class AddEventComponent implements OnInit {
     private router: Router,
     private eventDao: EventDaoService,
     private formHelper: EventFormHelperService,
-    private dateUtil: DateUtil) { }
+    private dateUtil: DateUtil,
+    private notificationService: NotificationHelperService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -31,7 +36,9 @@ export class AddEventComponent implements OnInit {
       const eventData = this.addEventForm.value;
       eventData.startDateAndTime = this.dateUtil.convertJSDateToMillisec(eventData.startDateAndTime);
       this.eventDao.createEvent(eventData).subscribe((value) => {
-        console.log('successfully created', value);
+        this.cancel()
+        this.notificationService.showMessage('Event has been success fully created', 
+        NotificationType.SUCCESS);
       }, (error) => {
         console.log('error occured', error);
       });
@@ -39,7 +46,7 @@ export class AddEventComponent implements OnInit {
       console.log('Your form is not valid one', this.addEventForm.value);
     }
   }
-  Cancel() {
+  cancel() {
     this.router.navigate(['list']);
   }
 }

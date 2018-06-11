@@ -1,32 +1,32 @@
 <div class="row title">
-  <span>{{title}}</span>
+    <span>{{title}}</span>
 </div>
 <div class="row">
-  <form [formGroup]="addEventForm">
-    <div class="col-xs-12">
-      <label>Title</label>
-      <input class="form-control" type="text" formControlName="title" />
-    </div>
-    <div class="col-xs-12">
-      <label>Description</label>
-      <textarea class="form-control" type="text" formControlName="description"></textarea>
-    </div>
-    <div class="col-xs-12">
-      <label>Event Date And Time</label>
-      <input class="form-control" type="datetime-local" formControlName="startDateAndTime" />
-    </div>
-    <div class="col-xs-12">
-      <label>Duration(min)</label>
-      <input class="form-control" type="text" formControlName="duration" />
-    </div>
-  </form>
+    <form [formGroup]="addEventForm">
+        <div class="col-xs-12">
+            <label>Title</label>
+            <input autocomplete="true" class="form-control" type="text" formControlName="title" />
+        </div>
+        <div class="col-xs-12">
+            <label>Description</label>
+            <textarea class="form-control" type="text" formControlName="description"></textarea>
+        </div>
+        <div class="col-xs-12">
+            <label>Event Date And Time</label>
+            <input class="form-control" type="datetime-local" formControlName="startDateAndTime" />
+        </div>
+        <div class="col-xs-12">
+            <label>Duration(min)</label>
+            <input class="form-control" type="text" formControlName="duration" />
+        </div>
+    </form>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-success pull-right" (click)="submit()">
+    <div class="col-xs-12">
+        <button class="btn btn-success pull-right" (click)="submit()">
       <i class="fa fa-save">&nbsp;</i>Save</button>
-    <button class="btn btn-danger pull-right" (click)="Cancel()">
+        <button class="btn btn-danger pull-right" (click)="cancel()">
       <i class="fa fa-times">&nbsp;</i>Cancel</button>
 
-  </div>
+    </div>
 </div>

@@ -1,0 +1,30 @@
+<app-modal [show]="show">
+    <app-modal-header>
+        <div class="col-xs-12">
+            <span>Are you sure, you want to delete Event?</span>
+        </div>
+    </app-modal-header>
+    <app-modal-body>
+        <div class="col-xs-12" *ngIf="event">
+            <div class="col-xs-12">
+                <label class="col-sm-3">Event Title:</label>
+                <span class="col-sm-9">{{event.title}}</span>
+            </div>
+            <div class="col-xs-12">
+                <label class="col-sm-3">Event Description: </label>
+                <span class="col-sm-9">{{event.description}}</span>
+            </div>
+        </div>
+
+    </app-modal-body>
+    <app-modal-footer>
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-success" (click)="confirmDelete()">
+          <i class="fa fa-trash">&nbsp;</i>Delete
+        </button>
+            <button type="button" class="btn btn-default" (click)="cancelModal(false)">
+            <i class="fa fa-times">&nbsp;</i>Cancel
+          </button>
+        </div>
+    </app-modal-footer>
+</app-modal>
