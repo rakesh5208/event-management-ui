@@ -1,3 +1,4 @@
+import { Color } from './color';
 export interface Event {
     id?: number;
     title: string;
@@ -6,4 +7,5 @@ export interface Event {
     duration: number;
     whenCreated?: number;
     whenLastUpdated?: number;
+    colors: Color[];
 }

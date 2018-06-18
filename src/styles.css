@@ -14,15 +14,23 @@ textarea {
 }
 
 .footer {
-    background: #79018d;
+    background: #54a0ff;
     text-align: center;
     color: white;
     padding: 15px 12px;
     position: absolute;
     margin-top: 40px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .modal-header {
     font-weight: 700;
+    font-size: 18px;
+}
+
+.nav-container{
+    background: #54a0ff !important;
+    box-shadow:14px 0 16px 0 #54a0ff !important;
     font-size: 18px;
 }

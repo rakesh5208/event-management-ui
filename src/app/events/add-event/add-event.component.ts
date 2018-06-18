@@ -33,13 +33,16 @@ export class AddEventComponent implements OnInit {
   }
   submit() {
     if (this.addEventForm.valid) {
+      this.formHelper.patchColorsInForm(this.addEventForm, this.getRandomColors());
       const eventData = this.addEventForm.value;
       eventData.startDateAndTime = this.dateUtil.convertJSDateToMillisec(eventData.startDateAndTime);
+
       this.eventDao.createEvent(eventData).subscribe((value) => {
-        this.cancel()
-        this.notificationService.showMessage('Event has been success fully created', 
-        NotificationType.SUCCESS);
+        this.cancel();
+        this.notificationService.showMessage('Event has been success fully created',
+          NotificationType.SUCCESS);
       }, (error) => {
+        this.notificationService.showMessage('Unable to create event',NotificationType.ERROR);
         console.log('error occured', error);
       });
     } else {
@@ -48,5 +51,20 @@ export class AddEventComponent implements OnInit {
   }
   cancel() {
     this.router.navigate(['list']);
+  }
+
+  getRandomColors() {
+    const colors = [];
+    for (let i = 0; i < 3; i++) {
+      const r = Math.floor(Math.random() * 255);
+      const g = Math.floor(Math.random() * 255);
+      const b = Math.floor(Math.random() * 255);
+      colors[i] = {
+        red: r,
+        green: g,
+        blue: b
+      };
+    }
+    return colors;
   }
 }

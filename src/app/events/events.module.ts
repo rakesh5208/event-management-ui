@@ -13,13 +13,15 @@ import { EventFormHelperService } from './event-form-helper.service';
 import { TimeConverterPipe } from '../shared/time-converter.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { DeleteEventComponent } from './delete-event/delete-event.component';
+import { CommentsModule } from '../comments/comments.module';
 
 @NgModule({
   imports: [
     SharedModule,
     CommonModule,
     ReactiveFormsModule,
-    LoadingModule
+    LoadingModule,
+    CommentsModule
     // EventsRoutingModule
   ],
   declarations: [

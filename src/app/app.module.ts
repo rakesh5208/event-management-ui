@@ -25,7 +25,6 @@ import { CoreModule } from './core/core.module';
     ReactiveFormsModule,
     HttpClientModule,
     EventsModule,
-
     AppRoutingModule
   ],
   providers: [],

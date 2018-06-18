@@ -1,8 +1,8 @@
 import { DateUtil } from './../services/date-util-service';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Event } from '../model';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { Event, Color } from '../model';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class EventFormHelperService {
     public deleteModalState = new BehaviorSubject<any>({ open: false, reload: false });
@@ -24,7 +24,8 @@ export class EventFormHelperService {
             'startDateAndTime': [this.convertMillisecToJSDate(event.startDateAndTime) || '', Validators.required],
             'duration': [event.duration || '', Validators.required],
             'whenCreated': [event.whenCreated],
-            'whenLastUpdated': [event.whenLastUpdated]
+            'whenLastUpdated': [event.whenLastUpdated],
+            'colors': [event.colors]
         });
     }
     convertMillisecToJSDate(millisec: number) {
@@ -43,7 +44,13 @@ export class EventFormHelperService {
             startDateAndTime: Date.now(),
             duration: 0,
             whenCreated: 0,
-            whenLastUpdated: 0
+            whenLastUpdated: 0,
+            colors: []
         };
+    }
+    patchColorsInForm(form: FormGroup, colors: Color[]) {
+        form.patchValue({
+            'colors': colors
+        });
     }
 }
