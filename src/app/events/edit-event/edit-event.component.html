@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-xs-12">
             <label>Description:</label>
-            <span>{{event.description}}</span>
+            <span>{{event.description | base64tostring}}</span>
           </div>
       
           <div class="col-xs-12">
@@ -78,7 +78,7 @@
     </app-modal>
 
   </ng-container>
-</div>
-<div class="row">
-  <app-comments></app-comments>
+  <div class="row">
+    <app-comments [rootId]="event?.id"></app-comments>
+  </div>
 </div>

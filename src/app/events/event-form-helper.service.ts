@@ -20,7 +20,7 @@ export class EventFormHelperService {
         return this.fb.group({
             'id': [event.id],
             'title': [event.title || '', Validators.required],
-            'description': [event.description || '', Validators.required],
+            'description': [atob(event.description) || '', Validators.required],
             'startDateAndTime': [this.convertMillisecToJSDate(event.startDateAndTime) || '', Validators.required],
             'duration': [event.duration || '', Validators.required],
             'whenCreated': [event.whenCreated],
@@ -48,9 +48,7 @@ export class EventFormHelperService {
             colors: []
         };
     }
-    patchColorsInForm(form: FormGroup, colors: Color[]) {
-        form.patchValue({
-            'colors': colors
-        });
+    patchForm(form: FormGroup, controlName: string, value: any) {
+        form.controls[controlName].patchValue(value);
     }
 }

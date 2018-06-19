@@ -8,10 +8,10 @@
         <span>
           <i class="fa fa-user">&nbsp;</i>{{comment.author}}</span>
         <span class="pull-right">
-          <i class="fa fa-clock-o">&nbsp;</i>{{comment.whenAdded |date:'medium'}}</span>
+          <i class="fa fa-clock-o">&nbsp;</i>{{comment.whenCreated |date:'medium'}}</span>
       </div>
       <div class="message">
-        <span>{{comment.message}}</span>
+        <span>{{comment.message | base64tostring}}</span>
       </div>
       <div class="event-react">
         <a class="fa fa-thumbs-o-up"> &nbsp;Like</a>

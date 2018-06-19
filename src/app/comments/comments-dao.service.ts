@@ -8,15 +8,15 @@ export class CommentsDaoService {
   private baseUrl = '';
   constructor(private http: HttpClient,
     private lookupService: AppLookService) {
-    // this.baseUrl = this.lookupService.getBaseApiEndPoint() + '/comments';
+    this.baseUrl = this.lookupService.getBaseApiEndPoint();
   }
 
   public getAll(rootId: string) {
-    this.baseUrl = '/assets/comments.json';
-    // return this.http.get<Comment[]>(this.baseUrl + '/' + rootId);
-    return this.http.get<Comment[]>(this.baseUrl);
+    // this.baseUrl = '/assets/comments.json';
+    return this.http.get<Comment[]>(this.baseUrl + '/' + rootId + '/comments');
+    // return this.http.get<Comment[]>(this.baseUrl);
   }
   public add(rootId: string, comment: Comment) {
-    return this.http.post<Comment>(this.baseUrl + '/' + rootId, comment);
+    return this.http.post<Comment>(this.baseUrl + '/' + rootId + '/comments', comment);
   }
 }

@@ -33,16 +33,17 @@ export class AddEventComponent implements OnInit {
   }
   submit() {
     if (this.addEventForm.valid) {
-      this.formHelper.patchColorsInForm(this.addEventForm, this.getRandomColors());
+      this.formHelper.patchForm(this.addEventForm, 'colors', this.getRandomColors());
+      console.log(this.addEventForm.value);
       const eventData = this.addEventForm.value;
       eventData.startDateAndTime = this.dateUtil.convertJSDateToMillisec(eventData.startDateAndTime);
-
+      eventData.description = btoa(eventData.description);
       this.eventDao.createEvent(eventData).subscribe((value) => {
         this.cancel();
         this.notificationService.showMessage('Event has been success fully created',
           NotificationType.SUCCESS);
       }, (error) => {
-        this.notificationService.showMessage('Unable to create event',NotificationType.ERROR);
+        this.notificationService.showMessage('Unable to create event', NotificationType.ERROR);
         console.log('error occured', error);
       });
     } else {

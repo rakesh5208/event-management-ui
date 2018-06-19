@@ -1,3 +1,4 @@
+import { Base64ToString } from './base64-to-string.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimeConverterPipe } from './time-converter.pipe';
@@ -11,12 +12,16 @@ import { FormsModule } from '@angular/forms';
     LoadingModule,
     FormsModule
   ],
-  declarations: [TimeConverterPipe],
+  declarations: [
+    TimeConverterPipe,
+    Base64ToString
+  ],
   exports: [
     ModalModule,
     TimeConverterPipe,
     FormsModule,
-    LoadingModule
+    LoadingModule,
+    Base64ToString
   ]
 })
 export class SharedModule { }

@@ -42,6 +42,7 @@ export class EditEventComponent implements OnInit {
     if (this.eventForm.valid) {
       const eventData = this.eventForm.value;
       eventData.startDateAndTime = this.dateUtil.convertJSDateToMillisec(eventData.startDateAndTime);
+      eventData.description = btoa(eventData.description);
       this.eventDao.updateEvent(this.eventId, eventData).subscribe((value) => {
         this.getEvent();
         this.isInEdit = false;
@@ -73,9 +74,10 @@ export class EditEventComponent implements OnInit {
   }
 
   setEventTitleBg(colors: Color[]) {
-
-    this.eventTitleBg = `linear-gradient(35deg,rgb(${colors[0].red},${colors[0].green},${colors[0].blue}),
+    if (colors.length === 3) {
+      this.eventTitleBg = `linear-gradient(35deg,rgb(${colors[0].red},${colors[0].green},${colors[0].blue}),
     rgb(${colors[1].red},${colors[1].green},${colors[1].blue}),
     rgb(${colors[2].red},${colors[2].green},${colors[2].blue}))`;
+    }
   }
 }

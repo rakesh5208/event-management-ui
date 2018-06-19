@@ -1,7 +1,6 @@
 export interface Comment {
-    rootId: string;
-    id: string;
+    id?: string;
     message: string;
-    whenAdded: number;
-    autor: string;
+    whenCreated?: number;
+    author: string;
 }

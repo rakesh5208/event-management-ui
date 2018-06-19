@@ -25,6 +25,8 @@ export class CommentsComponent implements OnInit {
   getAllComments() {
     this.dao.getAll(this.rootId).subscribe((comments) => {
       this.comments = comments;
+    }, (error) => {
+      this.notifyService.showMessage('unable to load comments', NotificationType.ERROR);
     });
   }
 
@@ -34,9 +36,18 @@ export class CommentsComponent implements OnInit {
   }
   post() {
     if (this.commentMessage) {
-      console.log(this.commentMessage);
-      this.setShowAddCommentPanelState(false);
-      this.notifyService.showMessage('Comment has been posted', NotificationType.SUCCESS);
+      const comment: Comment = {
+        message: btoa(this.commentMessage),
+        author: 'User' + Math.floor(Math.random() * 1000)
+      };
+      this.dao.add(this.rootId, comment).subscribe((success) => {
+        this.getAllComments();
+        this.setShowAddCommentPanelState(false);
+        this.notifyService.showMessage('Comment has been posted', NotificationType.SUCCESS);
+      }, (error) => {
+        this.notifyService.showMessage('Error occured while posting comment', NotificationType.ERROR);
+      });
+
     }
   }
 }
