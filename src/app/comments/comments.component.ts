@@ -14,7 +14,6 @@ export class CommentsComponent implements OnInit {
   comments: Comment[] = [];
   showAddComment = false;
   commentMessage = '';
-  loading = true;
   constructor(private dao: CommentsDaoService,
     private notifyService: NotificationHelperService) { }
 
@@ -43,7 +42,7 @@ export class CommentsComponent implements OnInit {
       this.dao.add(this.rootId, comment).subscribe((success) => {
         this.getAllComments();
         this.setShowAddCommentPanelState(false);
-        this.notifyService.showMessage('Comment has been posted', NotificationType.SUCCESS);
+        // this.notifyService.showMessage('Comment has been posted', NotificationType.SUCCESS);
       }, (error) => {
         this.notifyService.showMessage('Error occured while posting comment', NotificationType.ERROR);
       });

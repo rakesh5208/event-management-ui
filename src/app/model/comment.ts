@@ -3,4 +3,5 @@ export interface Comment {
     message: string;
     whenCreated?: number;
     author: string;
+    replies?:Comment[];
 }

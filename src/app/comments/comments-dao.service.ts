@@ -19,4 +19,13 @@ export class CommentsDaoService {
   public add(rootId: string, comment: Comment) {
     return this.http.post<Comment>(this.baseUrl + '/' + rootId + '/comments', comment);
   }
+
+  public getAllReplies(rootId: string, commentId: string) {
+    const url = `${this.baseUrl}/${rootId}/comments/${commentId}`;
+    return this.http.get<Comment[]>(url);
+  }
+  public replyOnComment(rootId: string, commentId: string, comment: Comment) {
+    const url = `${this.baseUrl}/${rootId}/comments/${commentId}`;
+    return this.http.post<Comment>(url, comment);
+  }
 }

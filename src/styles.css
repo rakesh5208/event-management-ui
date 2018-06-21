@@ -2,7 +2,6 @@
 
 textarea {
     resize: none;
-    height: 120px !important;
 }
 
 .empty-row {
@@ -33,4 +32,87 @@ textarea {
     background: #54a0ff !important;
     box-shadow:14px 0 16px 0 #54a0ff !important;
     font-size: 18px;
+}
+
+
+/**
+comments
+*/
+
+.author-time,.reply-text{
+    font-size: 16px;
+    padding:12px 0px;
+    margin-left: 15px;
+    margin-top: 5px;
+    clear: both;
+}
+
+.author,.message{
+    float: left;
+    padding-right: 5px;
+}
+.author{
+    border:1px solid #8f9494;
+    border-right: transparent;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding:12px;
+    color: black;
+    font-weight: bolder;
+}
+.message{
+    text-align: justify;
+    width: 60%;
+    background: rgba(68, 68, 68, 0.07);
+    padding:12px;
+    font-size: 16px;
+    border:1px solid #8f9494;
+    border-left: transparent;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.reply-text{
+   width:100%;
+   border-radius: 25px;
+   padding:12px;
+   height: 50px;
+   color:#0c7dda;
+}
+.event-react>a{
+    color: #8f9494;
+    padding: 12px;
+}
+.event-react .fa:hover{
+    color:#54a0ff;
+    cursor: pointer;
+    text-decoration: none;
+    transform: scale(1.2);
+}
+.event-react:after{
+    clear: both;
+}
+.comments{
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid ;
+    margin: 12px 0px;
+    margin-left:0px;
+}
+
+.comment{
+    margin-left:15px;
+}
+.main-comment{
+    margin:0px;
+    border-bottom:1px solid #8f9494 ;
+}
+.new-comment>button{
+    margin-left:15px;
+}
+
+/**
+font-awesome overload
+**/
+.fa{
+    font: normal normal normal 14px/1.6 FontAwesome !important;
 }
