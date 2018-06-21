@@ -4,6 +4,10 @@ textarea {
     resize: none;
 }
 
+a {
+    cursor: pointer;
+}
+
 .empty-row {
     text-align: center;
 }
@@ -28,9 +32,9 @@ textarea {
     font-size: 18px;
 }
 
-.nav-container{
+.nav-container {
     background: #54a0ff !important;
-    box-shadow:14px 0 16px 0 #54a0ff !important;
+    box-shadow: 14px 0 16px 0 #54a0ff !important;
     font-size: 18px;
 }
 
@@ -39,80 +43,89 @@ textarea {
 comments
 */
 
-.author-time,.reply-text{
+.author-time,
+.reply-text {
     font-size: 16px;
-    padding:12px 0px;
+    padding: 12px 0px;
     margin-left: 15px;
     margin-top: 5px;
     clear: both;
 }
 
-.author,.message{
+.user-ava {
     float: left;
-    padding-right: 5px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    background: rgba(68, 68, 68, 0.07);
 }
-.author{
-    border:1px solid #8f9494;
-    border-right: transparent;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    padding:12px;
-    color: black;
-    font-weight: bolder;
+
+.user-ava>img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
-.message{
+
+.message {
     text-align: justify;
     width: 60%;
     background: rgba(68, 68, 68, 0.07);
-    padding:12px;
+    padding: 12px;
     font-size: 16px;
-    border:1px solid #8f9494;
-    border-left: transparent;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border: 1px solid #8f9494;
+    float: left;
+    padding-right: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
 }
-.reply-text{
-   width:100%;
-   border-radius: 25px;
-   padding:12px;
-   height: 50px;
-   color:#0c7dda;
+
+.comment-author {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
 }
-.event-react>a{
+
+.reply-text {
+    width: 100%;
+    border-radius: 25px;
+    padding: 12px;
+    height: 50px;
+    color: black;
+}
+
+.event-react>a {
     color: #8f9494;
     padding: 12px;
 }
-.event-react .fa:hover{
-    color:#54a0ff;
+
+.event-react .fa:hover {
+    color: #54a0ff;
     cursor: pointer;
     text-decoration: none;
     transform: scale(1.2);
 }
-.event-react:after{
+
+.event-react:after {
     clear: both;
 }
-.comments{
+
+.comments {
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid;
     margin: 12px 0px;
-    margin-left:0px;
+    margin-left: 0px;
 }
 
-.comment{
-    margin-left:15px;
-}
-.main-comment{
-    margin:0px;
-    border-bottom:1px solid #8f9494 ;
-}
-.new-comment>button{
-    margin-left:15px;
+.comment {
+    margin-left: 15px;
 }
 
-/**
-font-awesome overload
-**/
-.fa{
-    font: normal normal normal 14px/1.6 FontAwesome !important;
+.main-comment {
+    margin: 0px;
+    border-bottom: 1px solid #8f9494;
+}
+
+.new-comment>button {
+    margin-left: 15px;
 }

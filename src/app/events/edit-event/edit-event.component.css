@@ -1,16 +1,21 @@
-.ev-title{
+.ev-title {
     height: 300px;
     /* background: linear-gradient(35deg,#00ffc4,#3e3e62,#9a1717); */
 }
-.ev-title>div{
+
+.ev-title>div {
     margin: 150px auto;
     text-align: center;
     font-size: 35px;
-    color:white;
+    color: white;
     font-weight: bold;
 }
 
-.event-history>div{
+.event-history {
+    position: sticky;
+}
+
+.event-history>div {
     display: inline-block;
-    padding:0px 0px 15px 10px;
+    padding: 0px 0px 15px 10px;
 }

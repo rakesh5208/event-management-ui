@@ -1,31 +1,32 @@
 <div class="author-time row">
-  <div class="author">
-      <i class="fa fa-user">&nbsp;</i>
-      <span>{{comment.author}}</span>
-  </div>
-  <div class="message">
-      <span>{{comment.message | base64tostring}}</span>
-  </div>
-  <!-- <span>
+    <div class="user-ava">
+        <img src="assets/images/user.jpg">
+        <a class="comment-author">{{comment.author}}</a>
+    </div>
+    <div class="message">
+
+        <span>{{comment.message | base64tostring}}</span>
+    </div>
+    <!-- <span>
     <i class="fa fa-user">&nbsp;</i>{{comment.author}}</span> -->
-  <!-- <span class="pull-right">
+    <!-- <span class="pull-right">
     <i class="fa fa-clock-o">&nbsp;</i>{{comment.whenCreated |date:'medium'}}</span>
 </div>
 <div class="message">
   <span>{{comment.message | base64tostring}}</span>
 </div> -->
-<div class="event-react">
-  <a class="fa fa-thumbs-o-up"> &nbsp;Like</a>
-  <a class="fa fa-reply" *ngIf="!showAddComment" (click)="setShowAddCommentPanelState(true)"> &nbsp;Reply</a>
-</div>
-<div class="col-xs-12 new-comment" *ngIf="showAddComment">
-  <textarea class="reply-text" placeholder="write your comment" [(ngModel)]="commentMessage"></textarea>
-  <button type="button" class="btn btn-success" (click)="post()">
+    <div class="event-react">
+        <a class="fa fa-thumbs-o-up"> &nbsp;Like</a>
+        <a class="fa fa-reply" *ngIf="!showAddComment" (click)="setShowAddCommentPanelState(true)"> &nbsp;Reply</a>
+    </div>
+    <div class="col-xs-12 new-comment" *ngIf="showAddComment">
+        <textarea class="reply-text" placeholder="write your comment" [(ngModel)]="commentMessage"></textarea>
+        <button type="button" class="btn btn-success" (click)="post()">
     <i class="fa fa-send-o">&nbsp;</i>Post</button>
-  <button type="button" class="btn btn-default"(click)="setShowAddCommentPanelState(false)">
+        <button type="button" class="btn btn-default" (click)="setShowAddCommentPanelState(false)">
     <i class="fa fa-comment-o">&nbsp;</i>Cancel</button>
+    </div>
+    <div *ngFor="let comment of comments" class="comment">
+        <app-view-comment [comment]="comment" [rootId]="rootId"></app-view-comment>
+    </div>
 </div>
-<div *ngFor="let comment of comments" class="comment">
-  <app-view-comment [comment]="comment" [rootId]="rootId"></app-view-comment>
-</div>
-
